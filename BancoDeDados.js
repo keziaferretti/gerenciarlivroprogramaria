@@ -2,11 +2,10 @@ const mongoose = require('mongoose')
 
 
 async function conectaBancoDeDados(){
-
+    console.log('Conexão com o banco de dados iniciou')
     try{
-        console.log('Conexão com o banco de dados iniciou')
-
-        await mongoose.connect('mongodb+srv://keziamota93:z9NVv7vwfBLPVpdF@cluster0.np1hmcq.mongodb.net/?retryWrites=true&w=majority')
+        
+        await mongoose.connect(process.env.MONGODB_URL)
     
         console.log('Conexão com o banco de dados feita com sucesso!')
     }  catch(erro){
